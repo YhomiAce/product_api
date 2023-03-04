@@ -3,6 +3,7 @@ const Cors = require("cors");
 const morgan = require("morgan");
 
 const connectDB = require("./config/database");
+const Routes = require("./routes");
 
 const app = express();
 connectDB();
@@ -15,8 +16,11 @@ if (process.env === "development") {
 }
 
 app.get("/", (req, res) => {
-  res.send(`PRODUCT APP ${new Date()}`);
+  res.send({ success: true, message: `PRODUCT APP ${new Date()}` });
 });
+
+// Api Routes
+app.use("/api", Routes);
 
 // Handles all errors
 app.use((err, req, res, next) => {
