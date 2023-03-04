@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const multer = require("multer");
 const randomstring = require("randomstring");
 
@@ -33,11 +32,11 @@ const filter = (req, file, cb) => {
 };
 
 const upload = multer({
-  storage
-  // limits: {
-  //   fileSize: 1024 * 1024 * 5
-  // },
-  // fileFilter: filter
+  storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5
+  },
+  fileFilter: filter
 });
 
 module.exports = upload;

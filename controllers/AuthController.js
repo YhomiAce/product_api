@@ -66,7 +66,7 @@ exports.login = async (req, res, next) => {
 
     const payload = {
       user: {
-        id: user.id
+        id: user._id
       }
     };
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -93,7 +93,9 @@ exports.login = async (req, res, next) => {
 exports.getLoggedInUser = async (req, res) => {
   try {
     const user = JSON.parse(
-      JSON.stringify(await UserService.findOne({ id: req.user.id }, "password"))
+      JSON.stringify(
+        await UserService.findOne({ _id: req.user.id }, "password")
+      )
     );
     if (!user) {
       return res.status(404).send({

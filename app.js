@@ -30,26 +30,28 @@ app.use((err, req, res, next) => {
       if (err.status === 412) {
         return res
           .status(err.status)
-          .send({ success: false, message: err.message });
+          .send({ success: false, status: 412, message: err.message });
       }
       return res
         .status(err.status || 400)
-        .send({ success: false, message: "An error occur" });
+        .send({ success: false, status: 400, message: "An error occur" });
     }
     console.log("Application-error-logs", err);
     return res
       .status(err.status || 400)
-      .send({ success: false, message: err.message, err });
+      .send({ success: false, status: 400, message: err.message, err });
   } catch (error) {
     return res
       .status(error.status || 400)
-      .send({ success: false, message: error.message });
+      .send({ success: false, status: 400, message: error.message });
   }
 });
 
 // Not found route
 app.use((req, res) => {
-  return res.status(404).send({ success: false, message: "Route not found" });
+  return res
+    .status(404)
+    .send({ success: false, status: 404, message: "Route not found" });
 });
 
 const PORT = process.env.PORT || 5000;
