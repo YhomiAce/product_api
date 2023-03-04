@@ -73,12 +73,16 @@ exports.login = async (req, res, next) => {
       expiresIn: 36000
     });
 
+    const userWithoutPassword = JSON.parse(
+      JSON.stringify(await UserService.findOne({ email }, "password"))
+    );
+
     return res.status(201).send({
       success: true,
       message: "User Logged In Sucessfully",
       data: {
         token,
-        user
+        user: userWithoutPassword
       }
     });
   } catch (error) {
