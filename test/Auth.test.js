@@ -13,6 +13,51 @@ describe("Test Authentication usecases", () => {
     mongoose.connection.close();
     done();
   });
+
+  // Register test cases
+  describe("when name, email and password is missing", () => {
+    // should respond with status code of 422
+    test("should respond with a status code of 422", async () => {
+      const response = await request(app)
+        .post("/api/auth/register")
+        .send({
+          email: "",
+          password: "",
+          name: ""
+        });
+      expect(response.statusCode).toBe(422);
+    });
+  });
+
+  describe("Given already used email", () => {
+    // should respond with status code of 400
+    test("should respond with a status code of 400", async () => {
+      const response = await request(app)
+        .post("/api/auth/register")
+        .send({
+          email: "test@test.com",
+          password: "123456",
+          name: "Test user"
+        });
+      expect(response.statusCode).toBe(400);
+    });
+  });
+
+  describe("Given correct parameters", () => {
+    // should respond with status code of 201
+    test("should respond with a status code of 201", async () => {
+      const response = await request(app)
+        .post("/api/auth/register")
+        .send({
+          email: "test10@test.com",
+          password: "123456",
+          name: "Test Ten"
+        });
+      expect(response.statusCode).toBe(201);
+    });
+  });
+
+  // Login test cases
   describe("when email and password is missing", () => {
     // should respond with status code of 422
     test("should respond with a status code of 422", async () => {
