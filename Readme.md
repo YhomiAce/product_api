@@ -3,7 +3,7 @@
 ### Setup Instructions
 <ul>
     <li>Clone The Application using the git remote link: git clone https://github.com/YhomiAce/product_api</li>
-    <li>Install dependencies: npm install</li>
+    <li>Install dependencies: <b>npm install</b</li>
     <li>Create a copy of .env: cp .env.example .env</li>
     <li>Add mongodb database connection string</li>
     <li>Run the application: npm start</li>
