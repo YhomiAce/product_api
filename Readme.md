@@ -19,5 +19,11 @@
     <li>Postman</li>
 </ul>
 
+### Links to Api Documentation
+<p>https://documenter.getpostman.com/view/10911172/2s93Jow5Ys</p>
+
+### Links to hosted Api
+<p>https://node-product-test-api.herokuapp.com</p>
+
 ### Areas undone
 <p>Frontend integration</p>
