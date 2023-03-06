@@ -15,6 +15,9 @@ if (process.env === "development") {
   app.use(morgan);
 }
 
+// static serving
+app.use("/uploads", express.static(`${__dirname}/uploads`));
+
 app.get("/", (req, res) => {
   res.send({ success: true, message: `PRODUCT APP ${new Date()}` });
 });
