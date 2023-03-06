@@ -1,4 +1,4 @@
-## Clone a repository
+## Technical Test Read me
 
 ### Setup Instructions
 <ul>
