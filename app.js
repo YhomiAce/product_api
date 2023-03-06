@@ -54,10 +54,4 @@ app.use((req, res) => {
     .send({ success: false, status: 404, message: "Route not found" });
 });
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () =>
-  console.log(
-    `Environment: ${process.env.NODE_ENV} on port ${process.env.PORT} `
-  )
-);
+module.exports = app;

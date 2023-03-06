@@ -57,7 +57,7 @@ exports.login = async (req, res, next) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(404).send({
+      return res.status(400).send({
         success: false,
         status: 400,
         message: "Invalid User Details"
@@ -77,7 +77,7 @@ exports.login = async (req, res, next) => {
       JSON.stringify(await UserService.findOne({ email }, "password"))
     );
 
-    return res.status(201).send({
+    return res.status(200).send({
       success: true,
       message: "User Logged In Sucessfully",
       data: {
