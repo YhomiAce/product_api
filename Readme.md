@@ -3,11 +3,11 @@
 ### Setup Instructions
 <ul>
     <li>Clone The Application using the git remote link: git clone https://github.com/YhomiAce/product_api</li>
-    <li>Install dependencies: <b>npm install</b</li>
-    <li>Create a copy of .env: cp .env.example .env</li>
+    <li>Install dependencies: <b>npm install</b></li>
+    <li>Create a copy of .env: <b> cp .env.example .env </b> </li>
     <li>Add mongodb database connection string</li>
-    <li>Run the application: npm start</li>
-    <li>Test the application: npm run test</li>
+    <li>Run the application: <b>npm start</b></li>
+    <li>Test the application: <b>npm run test</b></li>
 </ul>
 
 ### Tools used
