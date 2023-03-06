@@ -152,7 +152,7 @@ exports.deleteProduct = async (req, res) => {
         message: "You are not authorized for this action"
       });
     }
-    await ProductService.delete({ id });
+    await ProductService.delete({ _id: id });
     return res.status(200).json({
       success: true,
       message: "Product Deleted"
